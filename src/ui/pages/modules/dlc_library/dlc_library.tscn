@@ -1,0 +1,211 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/ui/fonts/name_bar_label.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/ui/fonts/light_label_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui/controls/slick_button/slick_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/ui/pages/modules/dlc_library/dlc_library.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color = vec4(1.0);
+uniform float width : hint_range(0, 100) = 10.0;
+uniform float margin : hint_range(0, 100) = 10.0;
+uniform int pattern = 2; // diamond, circle, square
+const bool inside = true;
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(margin * 2.0));
+	
+	uv = (uv - texture_pixel_size * margin) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+	
+	if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+		COLOR.a = 0.0;
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+	
+	COLOR.rgb = mix(COLOR.rgb, color.rgb, color.a / 5.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
+shader_param/width = 0.0
+shader_param/margin = 10.0
+shader_param/pattern = 2
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.0197183, 0.0591549, 0.143662, 0.284507, 0.43662, 0.794366, 0.895775 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.902736, 1, 1, 1, 0.762523, 1, 1, 1, 0.64568, 1, 1, 1, 0.100904, 1, 1, 1, 0.276596, 1, 1, 1, 0, 1, 1, 1, 0.165099 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[node name="ViewLibrary" type="Control"]
+anchor_right = 1.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 0, 700 )
+rect_pivot_offset = Vector2( 720, 350 )
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlickButton" parent="." instance=ExtResource( 3 )]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 100
+custom_constants/margin_top = 50
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 1340.0
+margin_bottom = 150.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 1 )
+text = "YOUR LIBRARY"
+uppercase = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_left = 100.0
+margin_top = 50.0
+margin_right = 1340.0
+margin_bottom = 700.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 1232.0
+margin_bottom = 594.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 1224.0
+margin_bottom = 450.0
+mouse_filter = 2
+custom_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer"]
+margin_top = 50.0
+margin_right = 1224.0
+margin_bottom = 450.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+light_mask = 1024
+margin_right = 300.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 300, 400 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+light_mask = 1024
+margin_left = 308.0
+margin_right = 608.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 300, 400 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+light_mask = 1024
+margin_left = 616.0
+margin_right = 916.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 300, 400 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+light_mask = 1024
+margin_left = 924.0
+margin_right = 1224.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 300, 400 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+expand = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 458.0
+margin_right = 1224.0
+margin_bottom = 538.0
+mouse_filter = 2
+custom_constants/margin_top = 0
+
+[node name="Label2" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer2"]
+margin_right = 1224.0
+margin_bottom = 80.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 2 )
+text = "VIEW>"
+align = 1
+uppercase = true
+
+[node name="Sprite" type="Light2D" parent="."]
+position = Vector2( 1122.92, 354.658 )
+scale = Vector2( 0.303633, 702.308 )
+texture = SubResource( 4 )
+mode = 3
+range_item_cull_mask = 1024
+
+[connection signal="pressed" from="SlickButton" to="." method="_on_SlickButton_pressed"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/shaders/click_effect/up.anim" type="Animation" id=1]
+[ext_resource path="res://src/shaders/click_effect/down.anim" type="Animation" id=2]
+[ext_resource path="res://src/ui/controls/slick_button/slick_button.gd" type="Script" id=3]
+[ext_resource path="res://src/shaders/click_effect/youtube_button_shader.shader" type="Shader" id=4]
+[ext_resource path="res://src/ui/assets/textures.png" type="Texture" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
+shader_param/width = 0.0
+shader_param/margin = 10.0
+shader_param/pattern = 2
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 208.547, 226.225, 139.704, 140.115 )
+filter_clip = true
+
+[node name="SlickButton" type="NinePatchRect"]
+material = SubResource( 1 )
+margin_left = 3.36353
+margin_right = 547.364
+margin_bottom = 544.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture = SubResource( 2 )
+region_rect = Rect2( -0.193932, -0.358757, 140.213, 140.724 )
+patch_margin_left = 8
+patch_margin_top = 7
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/down = ExtResource( 2 )
+anims/up = ExtResource( 1 )
+
+[connection signal="gui_input" from="." to="." method="_on_SlickButton_gui_input"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,213 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://src/ui/controls/slick_button/slick_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/SmoothScroll/SmoothScroll.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/ui/pages/page.gd" type="Script" id=3]
+[ext_resource path="res://src/ui/assets/action_btn_icons/reload.tres" type="Texture" id=4]
+[ext_resource path="res://src/shaders/click_effect/youtube_button_shader.shader" type="Shader" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0823529, 0.0470588, 0.156863, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://src/ui/fonts/data/adobe_gothic_std-bold.otf"
+
+[sub_resource type="DynamicFont" id=3]
+resource_local_to_scene = true
+size = 140
+use_filter = true
+extra_spacing_top = 60
+font_data = SubResource( 2 )
+
+[sub_resource type="Shader" id=4]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color = vec4(1.0);
+uniform float width : hint_range(0, 100) = 10.0;
+uniform float margin : hint_range(0, 100) = 10.0;
+uniform int pattern = 2; // diamond, circle, square
+const bool inside = true;
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(margin * 2.0));
+	
+	uv = (uv - texture_pixel_size * margin) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+	
+	if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+		COLOR.a = 0.0;
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+	
+	COLOR.rgb = mix(COLOR.rgb, color.rgb, color.a / 5.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
+shader_param/width = 0.0
+shader_param/margin = 10.0
+shader_param/pattern = 2
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/textures.png-0313ad0dc0d904e4fd8ca04141a6708a.stex"
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = SubResource( 6 )
+region = Rect2( 37, 446, 86, 86 )
+filter_clip = true
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://src/ui/fonts/data/light_label_font.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 150
+use_filter = true
+font_data = SubResource( 8 )
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = ExtResource( 5 )
+shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
+shader_param/width = 0.0
+shader_param/margin = 10.0
+shader_param/pattern = 2
+
+[node name="Page" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+margin_bottom = 264.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 3 )
+text = "[PAGE NAME]"
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SmoothScroll" parent="." instance=ExtResource( 2 )]
+margin_top = 272.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SmoothScroll"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -1658.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlickButton" parent="." instance=ExtResource( 1 )]
+material = SubResource( 5 )
+margin_left = 15.7526
+margin_top = 23.9932
+margin_right = 215.753
+margin_bottom = 223.993
+
+[node name="TextureRect" type="TextureRect" parent="SlickButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+texture = SubResource( 7 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+margin_left = 420.0
+margin_top = 1105.0
+margin_right = 1020.0
+margin_bottom = 1263.0
+custom_fonts/font = SubResource( 9 )
+text = "Loading..."
+
+[node name="SlickButton2" parent="." instance=ExtResource( 1 )]
+material = SubResource( 10 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -227.184
+margin_top = 27.1836
+margin_right = -27.1836
+margin_bottom = 227.184
+
+[node name="TextureRect" type="TextureRect" parent="SlickButton2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 102.363, 99.3024 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="SlickButton" to="." method="_on_SlickButton_pressed"]
+[connection signal="pressed" from="SlickButton2" to="." method="_on_SlickButton2_pressed"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/ui/assets/textures.png" type="Texture" id=1]
+[ext_resource path="res://src/ui/screens/startup_screen/startuplabel.png" type="Texture" id=2]
+[ext_resource path="res://src/environments/default.tres" type="Environment" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "startup"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 0.210224, 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 0.210224, 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 0.210224, 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Vector2( 100, 0 ), Vector2( 120, 0 ), Vector2( 120, -48.857 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3, 0.7 ),
+"transitions": PoolRealArray( 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Vector2( 125, 0 ), Vector2( 125, 42.081 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.210224, 0.210224 ),
+"update": 0,
+"values": [ Vector2( -100, 0 ), Vector2( -140, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.95, 1.5 ),
+"transitions": PoolRealArray( 0.0883884, 0.0883884 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.9, 0.9 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.95, 1.5 ),
+"transitions": PoolRealArray( 1, 0.0883884, 0.0883884 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.92557 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="EngineLogo" type="Control"]
+modulate = Color( 1, 1, 1, 0.92557 )
+rect_scale = Vector2( 0.975634, 0.975634 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 1024
+position = Vector2( 100, 0 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 20, 0, 360, 100 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 1024
+position = Vector2( 125, 19.7849 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 30, 120, 350, 85 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 1024
+position = Vector2( -100, 0 )
+scale = Vector2( 1.14111, 1.14111 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 510, 20, 105, 170 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/startup = SubResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )

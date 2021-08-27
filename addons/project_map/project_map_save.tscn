@@ -1,0 +1,517 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://addons/project_map/pm_group_node.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/project_map/pm_group_node.gd" type="Script" id=2]
+[ext_resource path="res://addons/project_map/project_map.gd" type="Script" id=3]
+[ext_resource path="res://addons/project_map/group_selected.stylebox" type="StyleBox" id=4]
+[ext_resource path="res://addons/project_map/group.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://addons/project_map/pm_file_node.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/project_map/pm_file_node.gd" type="Script" id=7]
+[ext_resource path="res://addons/project_map/node_selected.stylebox" type="StyleBox" id=8]
+[ext_resource path="res://addons/project_map/node.stylebox" type="StyleBox" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.2, 0.231373, 0.309804, 1 )
+
+[node name="ProjectMap" type="GraphEdit"]
+visible = false
+margin_right = 2569.0
+margin_bottom = 1249.0
+rect_min_size = Vector2( 500, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 1 )
+scroll_offset = Vector2( -2569, -1149 )
+snap_distance = 32
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="GroupNode6" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 1097.0
+margin_top = 829.0
+margin_right = 1513.0
+margin_bottom = 925.0
+rect_min_size = Vector2( 416, 96 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -1472, -320 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Classes"
+
+[node name="GroupNode5" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 1097.0
+margin_top = 669.0
+margin_right = 1513.0
+margin_bottom = 765.0
+rect_min_size = Vector2( 416, 96 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -1472, -480 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "AutoLoad"
+
+[node name="GroupNode" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 489.0
+margin_top = 317.0
+margin_right = 1033.0
+margin_bottom = 925.0
+rect_min_size = Vector2( 544, 608 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -2080, -832 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Velius Engine"
+
+[node name="GroupNode2" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 1097.0
+margin_top = 317.0
+margin_right = 1512.0
+margin_bottom = 612.0
+rect_min_size = Vector2( 415, 295 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -1472, -832 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "UI"
+
+[node name="GroupNode3" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 521.0
+margin_top = 509.0
+margin_right = 1001.0
+margin_bottom = 893.0
+rect_min_size = Vector2( 480, 384 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -2048, -640 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Script"
+
+[node name="GroupNode4" type="GraphNode" parent="." instance=ExtResource( 1 )]
+margin_left = 553.0
+margin_top = 637.0
+margin_right = 969.0
+margin_bottom = 861.0
+rect_min_size = Vector2( 416, 224 )
+mouse_filter = 1
+custom_styles/commentfocus = ExtResource( 4 )
+custom_styles/comment = ExtResource( 5 )
+offset = Vector2( -2016, -512 )
+resizable = true
+comment = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+group_name = "Keywords"
+
+[node name="FileNode" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 681.0
+margin_top = 381.0
+margin_right = 852.0
+margin_bottom = 433.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1888, -768 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/velius.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode2" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 777.0
+margin_top = 541.0
+margin_right = 938.0
+margin_bottom = 593.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1792, -608 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/script/keyword_script.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode3" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 585.0
+margin_top = 541.0
+margin_right = 728.0
+margin_bottom = 593.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1984, -608 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/script/velius_script.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode6" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 585.0
+margin_top = 765.0
+margin_right = 679.0
+margin_bottom = 817.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1984, -384 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/script/keywords/run.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode4" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 585.0
+margin_top = 701.0
+margin_right = 678.0
+margin_bottom = 753.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1984, -448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/script/keywords/end.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode5" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 585.0
+margin_top = 733.0
+margin_right = 711.0
+margin_bottom = 785.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1984, -416 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/velius/script/keywords/go_next.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode7" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1353.0
+margin_top = 701.0
+margin_right = 1456.0
+margin_bottom = 753.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1216, -448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/public_scripts/funcs.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode8" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1129.0
+margin_top = 701.0
+margin_right = 1243.0
+margin_bottom = 753.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1440, -448 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/public_scripts/globals.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode9" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1129.0
+margin_top = 861.0
+margin_right = 1274.0
+margin_bottom = 913.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1440, -288 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/classes/downloader.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode10" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1321.0
+margin_top = 861.0
+margin_right = 1463.0
+margin_bottom = 913.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1248, -288 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://card_theme/classes/touch_scroll.gd"
+resource_type = 2
+icon_class = "Script"
+
+[node name="FileNode11" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1353.0
+margin_top = 349.0
+margin_right = 1486.0
+margin_bottom = 411.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1216, -800 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://card_theme/scenes/text_box/text_box.tscn"
+icon_class = "NinePatchRect"
+script_path = "res://src/ui/text_box/text_box.tscn::1"
+script_name = "built-in script"
+
+[node name="FileNode12" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1129.0
+margin_top = 349.0
+margin_right = 1262.0
+margin_bottom = 411.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1440, -800 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://card_theme/cards/card.tscn"
+icon_class = "KinematicBody2D"
+script_path = "res://src/ui/cards/card.tscn::1"
+script_name = "built-in script"
+
+[node name="FileNode13" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1129.0
+margin_top = 445.0
+margin_right = 1278.0
+margin_bottom = 507.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1440, -704 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://card_theme/card_holder/card_holder.tscn"
+icon_class = "Control"
+script_path = "res://src/ui/card_holder/card_holder.tscn::1"
+script_name = "built-in script"
+
+[node name="FileNode14" type="GraphNode" parent="." instance=ExtResource( 6 )]
+margin_left = 1353.0
+margin_top = 445.0
+margin_right = 1491.0
+margin_bottom = 507.0
+mouse_filter = 1
+custom_styles/frame = ExtResource( 9 )
+custom_styles/selectedframe = ExtResource( 8 )
+custom_constants/port_offset = 0
+offset = Vector2( -1216, -704 )
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+path = "res://src/ui/areas/drop_area/drop_area.tscn"
+icon_class = "Control"
+script_path = "res://src/ui/areas/drop_area/drop_area.gd"
+script_name = "DropArea.gd"
+
+[connection signal="_end_node_move" from="." to="." method="_on_GraphEdit__end_node_move"]
+[connection signal="delete_nodes_request" from="." to="." method="_on_GraphEdit_delete_nodes_request"]
