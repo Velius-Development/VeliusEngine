@@ -3,7 +3,7 @@
 [ext_resource path="res://src/ui/controls/slick_button/slick_button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/SmoothScroll/SmoothScroll.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/ui/pages/page.gd" type="Script" id=3]
-[ext_resource path="res://src/ui/assets/action_btn_icons/reload.tres" type="Texture" id=4]
+[ext_resource path="res://src/ui/assets/textures.png" type="Texture" id=4]
 [ext_resource path="res://src/shaders/click_effect/youtube_button_shader.shader" type="Shader" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -84,15 +84,11 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="AtlasTexture" id=11]
+resource_local_to_scene = true
 flags = 4
-load_path = "res://.import/textures.png-0313ad0dc0d904e4fd8ca04141a6708a.stex"
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = SubResource( 6 )
-region = Rect2( 37, 446, 86, 86 )
-filter_clip = true
+atlas = ExtResource( 4 )
+region = Rect2( 20, 430, 110, 120 )
 
 [sub_resource type="DynamicFontData" id=8]
 font_path = "res://src/ui/fonts/data/light_label_font.ttf"
@@ -109,6 +105,12 @@ shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
 shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
+
+[sub_resource type="AtlasTexture" id=12]
+resource_local_to_scene = true
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 277, 565, 95, 104 )
 
 [node name="Page" type="Control"]
 anchor_right = 1.0
@@ -164,9 +166,8 @@ margin_bottom = 223.993
 [node name="TextureRect" type="TextureRect" parent="SlickButton"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 2
-mouse_default_cursor_shape = 2
-texture = SubResource( 7 )
+rect_pivot_offset = Vector2( 102.363, 99.3024 )
+texture = SubResource( 11 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -202,7 +203,7 @@ margin_bottom = 227.184
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 102.363, 99.3024 )
-texture = ExtResource( 4 )
+texture = SubResource( 12 )
 expand = true
 stretch_mode = 4
 __meta__ = {
