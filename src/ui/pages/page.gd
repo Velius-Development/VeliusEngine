@@ -41,7 +41,7 @@ func _on_modules_ready(data):
 
 
 func load_module(module, delay):
-	var inst = load(MODULES_PATH + "/" + module.type + "/" + module.type + ".tscn").instance()
+	var inst = load(MODULES_PATH + module.type + "/" + module.type + ".tscn").instance()
 	if inst.has_method("init_data"):
 		inst.init_data(module.data)
 	inst.modulate.a = 0
