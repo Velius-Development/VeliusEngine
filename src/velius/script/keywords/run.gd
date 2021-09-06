@@ -10,6 +10,8 @@ Runs the GD-Script-Code typed in its body.
 
 """
 
+var KEY = "run"
+var RANGED = true
 
 func run():
 	var a = args

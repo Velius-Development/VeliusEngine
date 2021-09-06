@@ -10,6 +10,8 @@ Creates a globally accessable function
 
 """
 
+var KEY = "func"
+var RANGED = true
 
 func run():
 	pass

@@ -10,6 +10,8 @@ Ends the current mystery.
 
 """
 
+var KEY = "end"
+var RANGED = false
 
 func run():
 	Velius.end()

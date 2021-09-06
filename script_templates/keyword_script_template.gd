@@ -10,6 +10,8 @@ DESCRIPTION
 
 """
 
+const KEY = "[INSERT KEY]"
+const RANGED = false
 
 func run():
 	pass

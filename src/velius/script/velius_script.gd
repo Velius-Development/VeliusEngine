@@ -2,23 +2,14 @@ extends Node
 
 const ERR_PREFIX = "Velius-Script-Error:\n"
 
-const pathPrefix = "res://src/velius/script/keywords/"
+const KEYWORDS_PATH = "res://src/velius/script/keywords/"
 
-const keys = {
-	
-			"->": "GO_NEXT.gd",
-			"END": "END.gd",
+const COMMENT_SIGN = "#"
 
-			}
 
-const rangeKeys = {
-			
-			"RUN": "RUN.gd",
-			"FUNC": "FUNC.gd"
-			
-				}
+var keys = {}
+var rangedKeys = {}
 
-const commentSign = "#"
 
 var lines = []
 var tab_levels = []
@@ -26,6 +17,19 @@ var tab_levels = []
 var lineCounter : int
 
 var current_key
+
+func _ready():
+	initKeys()
+
+func initKeys():
+	for fileName in Funcs.list_files_in_directory(KEYWORDS_PATH):
+		register_key(KEYWORDS_PATH + fileName)
+
+func register_key(path):
+	var scriptInstance = load(path).new({})
+	var scriptKey = scriptInstance.KEY
+	if scriptInstance.RANGED:
+		rangedKeys[scriptKey] = path
 
 func run(script : String):
 	readLines(script)
@@ -44,7 +48,7 @@ func processLines():
 	for line in lines:
 		lineCounter += 1
 		
-		for key in rangeKeys:
+		for key in rangedKeys:
 			current_key = key
 			
 			if Funcs.is_word_in_string(key, line):
@@ -72,7 +76,7 @@ func processLines():
 							bodyLines.append(l)									# Add line to body
 					
 					# Hand over body lines to keyword script and run
-					var keywordScriptInstance = load(pathPrefix + rangeKeys[key]).new({"args": line.replace(key, "").split(" ").erase(line.replace(key, "").split(" ").length() - 1, 1), "body": bodyLines})
+					var keywordScriptInstance = load(rangedKeys[key]).new({"args": line.replace(key, "").split(" ").erase(line.replace(key, "").split(" ").length() - 1, 1), "body": bodyLines})
 					#yield(keywordScriptInstance, "finished")		BREAKS THE FOR LOOP
 					
 					#skip normal commands until lCounter line
@@ -84,10 +88,10 @@ func processLines():
 				current_key = key
 				if Funcs.is_word_in_string(key, line):
 					if line.replace(" ", "").begins_with(key):
-						var keywordScriptInstance = load(pathPrefix + keys[key]).new({"args": line.replace(key, "").split(" ")})
+						var keywordScriptInstance = load(keys[key]).new({"args": line.replace(key, "").split(" ")})
 						#yield(keywordScriptInstance, "finished")		BREAKS THE FOR LOOP
 					else:
 						error("A one-line key can only be used at the biginning of a line.")
 
 func error(message : String):
-	print("\n" + ERR_PREFIX  + "'" + current_key + "' - " + message + "\nError at dialogue: " + str(Velius.current_dialogue_id) + "\n             line: " + str(lineCounter))
+	print("\n" + ERR_PREFIX  + "'" + str(current_key) + "' - " + message + "\nError at dialogue: " + str(Velius.current_dialogue_id) + "\n             line: " + str(lineCounter))

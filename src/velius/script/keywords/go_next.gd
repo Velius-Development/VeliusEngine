@@ -10,6 +10,9 @@ Switches to the next dialogue.
 
 """
 
+var KEY = "->"
+var RANGED = false
+
 func run():
 	Velius.current_dialogue_id = self.args[0]
 	Velius.set_next(Velius.get_dialogue_by_id(self.args[0]))
