@@ -7,11 +7,11 @@
 [ext_resource path="res://addons/SmoothScroll/SmoothScroll.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/ui/assets/textures.png" type="Texture" id=6]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0823529, 0.0470588, 0.156863, 1 )
 shadow_size = 200
 
-[sub_resource type="ShaderMaterial" id=3]
+[sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -19,7 +19,7 @@ shader_param/width = 10.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
@@ -27,13 +27,13 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=4]
 resource_local_to_scene = true
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 271, 442, 99, 98 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=5]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -41,7 +41,7 @@ shader_param/width = 10.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
@@ -49,13 +49,13 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=7]
 resource_local_to_scene = true
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 25, 559, 105, 106 )
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=8]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -63,7 +63,7 @@ shader_param/width = 10.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=9]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
@@ -71,13 +71,13 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=10]
 resource_local_to_scene = true
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 146, 442, 105, 106 )
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=11]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -85,7 +85,7 @@ shader_param/width = 10.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=12]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
@@ -93,13 +93,13 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
 resource_local_to_scene = true
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 152, 560, 104, 104 )
 
-[sub_resource type="ShaderMaterial" id=15]
+[sub_resource type="ShaderMaterial" id=14]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 1, 1, 1, 1 )
@@ -107,7 +107,7 @@ shader_param/width = 10.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="ShaderMaterial" id=16]
+[sub_resource type="ShaderMaterial" id=15]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
 shader_param/color = Color( 0.372549, 0.372549, 0.372549, 0 )
@@ -115,7 +115,7 @@ shader_param/width = 0.0
 shader_param/margin = 10.0
 shader_param/pattern = 2
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 24, 441, 101, 100 )
@@ -142,7 +142,7 @@ margin_bottom = 2368.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": ""
@@ -186,7 +186,7 @@ margin_bottom = 555.0
 mouse_filter = 1
 
 [node name="SideMenuButton3" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer" instance=ExtResource( 1 )]
-material = SubResource( 3 )
+material = SubResource( 2 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 555.0
@@ -194,7 +194,7 @@ margin_right = 1301.0
 margin_bottom = 855.0
 
 [node name="SlickButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton3" index="0"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 
 [node name="CenterContainer2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton3/HBoxContainer" index="0"]
 margin_right = 427.0
@@ -202,7 +202,7 @@ margin_right = 427.0
 [node name="TextureRect" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton3/HBoxContainer/CenterContainer2" index="0"]
 margin_left = 163.0
 margin_right = 263.0
-texture = SubResource( 5 )
+texture = SubResource( 4 )
 
 [node name="CenterContainer" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton3/HBoxContainer" index="1"]
 margin_left = 435.0
@@ -213,7 +213,7 @@ margin_right = 866.0
 text = "Mystery info"
 
 [node name="SideMenuButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer" instance=ExtResource( 1 )]
-material = SubResource( 6 )
+material = SubResource( 5 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 855.0
@@ -221,7 +221,7 @@ margin_right = 1301.0
 margin_bottom = 1155.0
 
 [node name="SlickButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton" index="0"]
-material = SubResource( 7 )
+material = SubResource( 6 )
 
 [node name="CenterContainer2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton/HBoxContainer" index="0"]
 margin_right = 427.0
@@ -229,7 +229,7 @@ margin_right = 427.0
 [node name="TextureRect" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton/HBoxContainer/CenterContainer2" index="0"]
 margin_left = 163.0
 margin_right = 263.0
-texture = SubResource( 8 )
+texture = SubResource( 7 )
 
 [node name="CenterContainer" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton/HBoxContainer" index="1"]
 margin_left = 435.0
@@ -240,7 +240,7 @@ margin_right = 866.0
 text = "Save game"
 
 [node name="SideMenuButton4" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer" instance=ExtResource( 1 )]
-material = SubResource( 9 )
+material = SubResource( 8 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1155.0
@@ -248,7 +248,7 @@ margin_right = 1301.0
 margin_bottom = 1455.0
 
 [node name="SlickButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton4" index="0"]
-material = SubResource( 10 )
+material = SubResource( 9 )
 
 [node name="CenterContainer2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton4/HBoxContainer" index="0"]
 margin_right = 427.0
@@ -256,7 +256,7 @@ margin_right = 427.0
 [node name="TextureRect" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton4/HBoxContainer/CenterContainer2" index="0"]
 margin_left = 163.0
 margin_right = 263.0
-texture = SubResource( 11 )
+texture = SubResource( 10 )
 
 [node name="CenterContainer" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton4/HBoxContainer" index="1"]
 margin_left = 435.0
@@ -267,7 +267,7 @@ margin_right = 866.0
 text = "Load game"
 
 [node name="SideMenuButton5" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer" instance=ExtResource( 1 )]
-material = SubResource( 12 )
+material = SubResource( 11 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1455.0
@@ -275,7 +275,7 @@ margin_right = 1301.0
 margin_bottom = 1755.0
 
 [node name="SlickButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton5" index="0"]
-material = SubResource( 13 )
+material = SubResource( 12 )
 
 [node name="CenterContainer2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton5/HBoxContainer" index="0"]
 margin_right = 427.0
@@ -283,7 +283,7 @@ margin_right = 427.0
 [node name="TextureRect" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton5/HBoxContainer/CenterContainer2" index="0"]
 margin_left = 163.0
 margin_right = 263.0
-texture = SubResource( 14 )
+texture = SubResource( 13 )
 
 [node name="CenterContainer" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton5/HBoxContainer" index="1"]
 margin_left = 435.0
@@ -294,7 +294,7 @@ margin_right = 866.0
 text = "Settings"
 
 [node name="SideMenuButton2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer" instance=ExtResource( 1 )]
-material = SubResource( 15 )
+material = SubResource( 14 )
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1755.0
@@ -302,7 +302,7 @@ margin_right = 1301.0
 margin_bottom = 2055.0
 
 [node name="SlickButton" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton2" index="0"]
-material = SubResource( 16 )
+material = SubResource( 15 )
 
 [node name="CenterContainer2" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton2/HBoxContainer" index="0"]
 margin_right = 427.0
@@ -310,7 +310,7 @@ margin_right = 427.0
 [node name="TextureRect" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton2/HBoxContainer/CenterContainer2" index="0"]
 margin_left = 163.0
 margin_right = 263.0
-texture = SubResource( 17 )
+texture = SubResource( 16 )
 
 [node name="CenterContainer" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton2/HBoxContainer" index="1"]
 margin_left = 435.0

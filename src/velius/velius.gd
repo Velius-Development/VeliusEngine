@@ -21,9 +21,9 @@ func set_next(new_next):
 		run_location(next)
 
 var json_data = {}
-var current_chapter_id = null
-var current_dialogue_id = null # current dialogue id
-var current_location_id = null # current location id
+var current_chapter_id : int
+var current_dialogue_id : int
+var current_location_id : int
 var current_json_path = ""
 var current_json_location = ""
 
@@ -78,16 +78,16 @@ func load_data(json_text):
 	#file.close()
 
 
-func get_dialogue_by_id(id):
+func get_dialogue_by_id(id : int):
 	for chapter in json_data:
-		if chapter == current_chapter_id:
+		if chapter == str(current_chapter_id):
 			for dialogue in json_data[chapter]["dialogues"]:
-				if dialogue == id:
+				if dialogue == str(id):
 					return json_data[chapter]["dialogues"][dialogue]
 
 
-func get_action(id):
-	return json_data[current_chapter_id]["dialogues"][current_dialogue_id]["choices"][str(id)]["action"]
+func get_action(id : int):
+	return json_data[str(current_chapter_id)]["dialogues"][str(current_dialogue_id)]["choices"][str(id)]["action"]
 
 ##########################################
 ### MESSAGE SYSTEM
@@ -105,8 +105,8 @@ func start_chapter(json_path, chapterID):
 	load_data(json_path)
 
 	set_process(true)
-	current_dialogue_id = "0"
-	set_next(get_dialogue_by_id("0"))
+	current_dialogue_id = 0
+	set_next(get_dialogue_by_id(0))
 
 # Run dialogue
 func run_dialogue(data):
@@ -132,9 +132,9 @@ func next():			# Calls for the next step
 
 # End the dialogue
 func end():
-	current_dialogue_id = null
-	current_location_id = null
-	current_chapter_id = null
+	current_dialogue_id = -1
+	current_location_id = -1
+	current_chapter_id = -1
 	current_json_path = ""
 	set_process(false)
 
@@ -145,7 +145,7 @@ func end():
 
 # When player dragged a choice card
 func choice_made(id):
-	VS.run(get_action(id))
+	Scripts.run(get_action(id))
 
 func open_side_menu():
 	Globals.scene_handler.open_side_menu()
@@ -156,7 +156,9 @@ func get_chapter_resource_path(string : String):
 func mystery_resource_exists(string):
 	return File.new().file_exists(current_json_location + "/" +  string)
 
-func png_to_tex(local_res_path):
+func png_to_tex(local_res_path : String):
+	if local_res_path.empty():
+		return null
 	var i = Image.new()
 	i.load(get_chapter_resource_path(local_res_path))
 	var t = ImageTexture.new()

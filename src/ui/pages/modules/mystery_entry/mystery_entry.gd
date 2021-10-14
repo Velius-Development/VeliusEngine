@@ -11,4 +11,4 @@ func _ready():
 	pass
 
 func _on_SlickButton_pressed():
-	Velius.start_chapter(key, "0")
+	Velius.start_chapter(key, 0)

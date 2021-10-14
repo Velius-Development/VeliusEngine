@@ -13,15 +13,9 @@ _global_script_classes=[ {
 "class": "Funcs",
 "language": "GDScript",
 "path": "res://src/public_scripts/funcs.gd"
-}, {
-"base": "Node",
-"class": "KeywordScript",
-"language": "GDScript",
-"path": "res://src/velius/script/keyword_script.gd"
 } ]
 _global_script_class_icons={
-"Funcs": "",
-"KeywordScript": ""
+"Funcs": ""
 }
 
 [application]
@@ -42,9 +36,9 @@ default_bus_layout=""
 
 Globals="*res://src/public_scripts/globals.gd"
 Velius="*res://src/velius/velius.gd"
-VS="*res://src/velius/script/velius_script.gd"
 ThreadHandler="*res://src/public_scripts/thread_handler.gd"
 Console="*res://addons/quentincaffeino/console/src/Console.tscn"
+Scripts="*res://src/velius/scripting/scripts.gd"
 
 [debug]
 

@@ -1,3 +1,2 @@
-# Sprite Mask
-
-A godot sprite mask node plugin !
+# Game Client
+This is the repository of the Game belonging to the Velius engine.
