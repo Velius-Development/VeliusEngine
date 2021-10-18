@@ -6,7 +6,6 @@ func run(source_code):
 		source_code = "func run():\n\t" + source_code.replace("\n", "\n	")
 	script.set_source_code(source_code)
 	script.reload()
-	print("src:\n" + source_code)
 
 	var obj = Reference.new()
 	obj.set_script(script)
