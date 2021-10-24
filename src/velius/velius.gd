@@ -144,6 +144,15 @@ func end() -> void:
 # API
 ###############################################################################
 
+# Go to dialogue with given id
+func go(id : int) -> void:
+	set_next(get_dialogue_by_id(id))
+
+# Switches to chapter with given id
+# Directly jumps to given dialogue_id
+func go_chapter(chapter_id : int, dialogue_id = 0) -> void:
+	current_chapter_id = chapter_id
+	current_dialogue_id = dialogue_id
 
 # Called when player made a choice
 # Runs the selected choice's script
