@@ -46,10 +46,12 @@ jobs:
         run: |
           python3 -m gdscript_docs_maker / -p \docs
       
-      - name: update file and push to remote
+      - name: Commit files
         run: |
           git config --global user.name "[bot]docs_maker"
           git config --global user.email "[bot]docs_maker@users.noreply.github.com"
-          git add -A
-          git commit -m "Generated docs"
-          git push
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
