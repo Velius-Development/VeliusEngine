@@ -64,12 +64,13 @@ jobs:
         run: |
           cd ..
           git clone https://github.com/Velius-Development/VeliusDocs.git
+          ls
+          cd docs
+          ls
           cat docs/velius.gd.md > VeliusDocs/docs/reference/README.md
           cd VeliusDocs
       - name: Commit files
         run: |
-          git config --global user.name "[BOT]"
-          git config --global user.email "[bot]docs_maker@users.noreply.github.com"
           git commit -am "Updated docs 📚" || echo 0
       - name: Push changes
         uses: ad-m/github-push-action@master
