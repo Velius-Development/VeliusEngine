@@ -44,7 +44,8 @@ jobs:
 
       - name: Generate docs
         run: |
-          gdscript-docs-maker/generate_reference . -o docs
+          cd gdscript-docs-maker/
+          ./generate_reference .. -o ../docs
       
       - name: Commit files
         run: |
