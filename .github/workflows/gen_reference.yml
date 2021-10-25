@@ -64,14 +64,15 @@ jobs:
       - name: Update velius.dev
         run: |
           cd ..
-          sed -i '1s/^/``` yaml\n---\neditLink: false\n---\n```\n/' Game-Client/docs/velius.gd.md
+          sed -i '1s/^/---\neditLink: false\nsidebar: auto\n---\n/' Game-Client/docs/velius.gd.md
+          mv Game-Client/docs/velius.gd.md Game-Client/docs/README.md
           git clone https://github.com/Velius-Development/VeliusDocs.git
       - name: Pushes the updated docs
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
         with:
-          source_file: 'docs/velius.gd.md'
+          source_file: 'docs/README.md'
           destination_repo: 'Velius-Development/VeliusDocs'
           destination_branch: 'master'
           destination_folder: 'docs/reference'
