@@ -5,11 +5,9 @@ extends Node
 ###############################################################################
 
 
-
-
-
 ##############################
 # SIGNALS:
+
 
 # Called when a new dialogue is fired
 # Returns a Dictionary
@@ -17,6 +15,7 @@ signal new_dialogue(data)
 
 ##############################
 # VARIABLES:
+
 
 # Contains the current dialogue
 var next = {} setget set_next
@@ -31,6 +30,7 @@ var current_location_id : int
 ##############################
 # SET/GET-TERS
 
+
 func set_next(new_next : Dictionary) -> void:
 	next = new_next
 	if next.type == "dialogue":
@@ -41,10 +41,12 @@ func set_next(new_next : Dictionary) -> void:
 ##############################
 # VARIABLE SAVING API
 
+
 # TODO: IMPLEMENT
 
 ##############################
 #  FUNCTION OVERRIDES
+
 
 func _ready() -> void:
 	# Prevents closing on pressing close
@@ -74,6 +76,7 @@ func _notification(what) -> void:
 ##############################
 # TODO: FIND TITLE
 
+
 # Returns Dictionary containing
 # the dialogue's data
 # If id not found: returns empty Dictionary
@@ -91,6 +94,7 @@ func get_action(id : int) -> String:
 
 ##########################################
 ### MESSAGE SYSTEM
+
 
 # Loads a Mystery's data and theme
 # After loading the given chapter will get displayed
@@ -148,6 +152,7 @@ func end() -> void:
 ###############################################################################
 # API
 ###############################################################################
+
 
 # Go to current chapter's dialogue with given id
 func go(id : int) -> void:
