@@ -64,6 +64,12 @@ jobs:
       - name: Update velius.dev
         run: |
           cd ..
+          x=`echo "``` yaml
+          ---
+          editLink: false
+          ---
+          ```"; cat Game-Client/docs/velius.gd.md`
+          echo "$x" > Game-Client/docs/velius.gd.md
           git clone https://github.com/Velius-Development/VeliusDocs.git
       - name: Pushes the updated docs
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
