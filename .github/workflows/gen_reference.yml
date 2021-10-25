@@ -49,16 +49,16 @@ jobs:
           cd gdscript-docs-maker/
           ./generate_reference .. -o ../docs
       
-      - name: Commit files
-        run: |
-          git config --global user.name "${{ secrets.BOT_NAME }}"
-          git config --global user.email "${{ secrets.BOT_EMAIL }}"
-          git config --global user.password "${{ secrets.BOT_PASSWORD }}"
-          git commit -am "Generated docs 📚" || echo 0
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+#      - name: Commit files
+#        run: |
+#          git config --global user.name "${{ secrets.BOT_NAME }}"
+#          git config --global user.email "${{ secrets.BOT_EMAIL }}"
+#          git config --global user.password "${{ secrets.BOT_PASSWORD }}"
+#          git commit -am "Generated docs 📚" || echo 0
+#      - name: Push changes
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       # Update velius.dev
       - name: Update velius.dev
@@ -78,4 +78,3 @@ jobs:
           user_name: '${{ secrets.BOT_NAME }}'
           commit_message: 'Updated docs 📚'
   
-          
