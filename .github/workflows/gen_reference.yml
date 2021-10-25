@@ -71,7 +71,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
         with:
           source_file: 'Game-Client/docs/velius.gd.md'
-          destination_repo: 'Velius-Development/VeliusDocs'
+          destination_repo: 'https://github.com/Velius-Development/VeliusDocs.git'
           destination_folder: 'docs/reference'
           user_email: '${{ secrets.BOT_EMAIL }}'
           user_name: '${{ secrets.BOT_NAME }}'
