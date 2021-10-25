@@ -18,11 +18,11 @@ signal new_dialogue(data)
 
 
 # Contains the current dialogue
-var next = {} setget set_next
+var next := {} setget set_next
 
-var json_data = {}
-var current_json_path = ""
-var current_json_location = ""
+var json_data := {}
+var current_json_path := ""
+var current_json_location := ""
 var current_chapter_id : int
 var current_dialogue_id : int
 var current_location_id : int
