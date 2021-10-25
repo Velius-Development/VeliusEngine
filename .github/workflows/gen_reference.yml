@@ -40,11 +40,11 @@ jobs:
           download-templates: false
 
       - name: Clone GDScript-docs-maker
-        run: python3 -m pip install gdscript_docs_maker
+        run: git clone https://github.com/GDQuest/gdscript-docs-maker.git
 
       - name: Generate docs
         run: |
-          python3 -m gdscript_docs_maker . -p \docs
+          gdscript-docs-maker/gdscript_docs_maker/generate_reference . -p \docs
       
       - name: Commit files
         run: |
