@@ -70,7 +70,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
         with:
-          source_file: 'Game-Client/docs/velius.gd.md'
+          source_file: 'docs/velius.gd.md'
           destination_repo: 'Velius-Development/VeliusDocs'
           destination_branch: 'master'
           destination_folder: 'docs/reference'
