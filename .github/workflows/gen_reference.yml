@@ -44,7 +44,7 @@ jobs:
 
       - name: Generate docs
         run: |
-          python3 -m gdscript_docs_maker / -p \docs
+          python3 -m gdscript_docs_maker . -p \docs
       
       - name: Commit files
         run: |
