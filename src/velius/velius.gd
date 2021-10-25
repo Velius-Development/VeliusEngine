@@ -14,7 +14,8 @@ signal new_dialogue(data)
 ##############################
 # VARIABLES:
 
-var next = null setget set_next
+# Contains the current dialogue
+var next = {} setget set_next
 
 var json_data = {}
 var current_json_path = ""
