@@ -64,10 +64,7 @@ jobs:
         run: |
           cd ..
           git clone https://github.com/Velius-Development/VeliusDocs.git
-          ls
-          cd docs
-          ls
-          cat docs/velius.gd.md > VeliusDocs/docs/reference/README.md
+          cat Game-Client/docs/velius.gd.md > VeliusDocs/docs/reference/README.md
           cd VeliusDocs
       - name: Commit files
         run: |
