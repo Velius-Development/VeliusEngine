@@ -51,9 +51,9 @@ jobs:
       
       - name: Commit files
         run: |
-          git config --global user.name "[BOT]docs_maker"
+          git config --global user.name "[BOT]"
           git config --global user.email "[bot]docs_maker@users.noreply.github.com"
-          git commit -am "[BOT] Generated docs" || echo 0
+          git commit -am "Generated docs 📚" || echo 0
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
