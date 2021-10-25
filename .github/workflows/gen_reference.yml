@@ -78,5 +78,5 @@ jobs:
           destination_folder: 'docs/reference'
           user_email: '${{ secrets.BOT_EMAIL }}'
           user_name: '${{ secrets.BOT_NAME }}'
-          commit_message: 'Updated docs 📚'
+          commit_message: 'Updated references 📚'
   
