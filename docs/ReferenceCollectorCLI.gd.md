@@ -28,6 +28,7 @@ A list of directories to collect files from.
 var is_recursive: bool
 ```
 
+A list of directories to collect files from.
 If true, explore each directory recursively
 
 ### patterns
@@ -36,4 +37,6 @@ If true, explore each directory recursively
 var patterns: Array
 ```
 
+A list of directories to collect files from.
+If true, explore each directory recursively
 A list of patterns to filter files.

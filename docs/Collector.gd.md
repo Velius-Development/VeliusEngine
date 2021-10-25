@@ -24,6 +24,18 @@ var warnings_regex: RegEx
 func find_files(dirpath: String = "", patterns: PoolStringArray = [], is_recursive: bool = false, do_skip_hidden: bool = true) -> PoolStringArray
 ```
 
+Returns a list of file paths found in the directory.
+
+**Arguments**
+
+- dirpath: path to the directory from which to search files.
+- patterns: an array of string match patterns, where "*" matches zero or more
+  arbitrary characters and "?" matches any single character except a period
+  ("."). You can use it to find files by extensions. To find only GDScript
+  files, ["*.gd"]
+- is_recursive: if `true`, walks over subdirectories recursively, returning all
+  files in the tree.
+
 ### save\_text
 
 ```gdscript

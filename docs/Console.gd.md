@@ -38,6 +38,8 @@ const FilterType: GDScript = preload("res://addons/quentincaffeino/console/src/T
 const FloatRangeType: GDScript = preload("res://addons/quentincaffeino/console/src/Type/FloatRangeType.gd")
 ```
 
+## Custom console types
+
 ### IntRangeType
 
 ```gdscript
@@ -93,6 +95,8 @@ var previous_focus_owner
 ```gdscript
 var Text
 ```
+
+## Console nodes
 
 ### Line
 
@@ -191,10 +195,31 @@ func toggle_console()
 
 ## Signals
 
-- signal toggled(is_console_shown): @param  bool  is_console_shown
-- signal command_added(name, target, target_name): @param  String       name
+- signal toggled(is_console_shown): # Signals
+@param  bool  is_console_shown
+- signal command_added(name, target, target_name): # Signals
+@param  bool  is_console_shown
+@param  String       name
 @param  Reference    target
 @param  String|null  target_name
-- signal command_removed(name): @param  String  name
-- signal command_executed(command): @param  Command  command
-- signal command_not_found(name): @param  String  name
+- signal command_removed(name): # Signals
+@param  bool  is_console_shown
+@param  String       name
+@param  Reference    target
+@param  String|null  target_name
+@param  String  name
+- signal command_executed(command): # Signals
+@param  bool  is_console_shown
+@param  String       name
+@param  Reference    target
+@param  String|null  target_name
+@param  String  name
+@param  Command  command
+- signal command_not_found(name): # Signals
+@param  bool  is_console_shown
+@param  String       name
+@param  Reference    target
+@param  String|null  target_name
+@param  String  name
+@param  Command  command
+@param  String  name

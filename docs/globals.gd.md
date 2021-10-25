@@ -14,6 +14,8 @@
 var scene_handler
 ```
 
+DYNAMIC
+
 ### dev\_mode
 
 ```gdscript
@@ -26,6 +28,7 @@ var dev_mode
 var encryptText
 ```
 
+SETTINGS
 Will be setable in settings
 
 ### IMPORTED
@@ -34,4 +37,5 @@ Will be setable in settings
 var IMPORTED
 ```
 
+IMPORTED DATA
 {"root_folder_name": {"name": "", "type": "", "json": "", "from": ""}, ...}

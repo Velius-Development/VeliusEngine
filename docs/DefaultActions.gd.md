@@ -42,6 +42,7 @@ const CONSOLE_TOGGLE: String = "quentincaffeino_console_toggle"
 const console_autocomplete_props: Dictionary = {"events":[{"scancode":16777218}],"name":"quentincaffeino_console_autocomplete"}
 ```
 
+@const  String
 @const  Dictionary
 
 ### console\_history\_down\_props
@@ -50,6 +51,7 @@ const console_autocomplete_props: Dictionary = {"events":[{"scancode":16777218}]
 const console_history_down_props: Dictionary = {"events":[{"scancode":16777234}],"name":"quentincaffeino_console_history_down"}
 ```
 
+@const  String
 @const  Dictionary
 
 ### console\_history\_up\_props
@@ -58,6 +60,7 @@ const console_history_down_props: Dictionary = {"events":[{"scancode":16777234}]
 const console_history_up_props: Dictionary = {"events":[{"scancode":16777232}],"name":"quentincaffeino_console_history_up"}
 ```
 
+@const  String
 @const  Dictionary
 
 ### console\_toggle\_props
@@ -66,4 +69,5 @@ const console_history_up_props: Dictionary = {"events":[{"scancode":16777232}],"
 const console_toggle_props: Dictionary = {"events":[{"scancode":96}],"name":"quentincaffeino_console_toggle"}
 ```
 
+@const  String
 @const  Dictionary

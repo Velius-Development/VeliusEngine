@@ -6,31 +6,42 @@
 
 ## Description
 
-## Enumerations
-
-### Type
-
-```gdscript
-const Type: Dictionary = {"METHOD":2,"UNKNOWN":0,"VARIABLE":1}
-```
-
 ## Method Descriptions
 
-### get\_type <small>(static)</small>
+### to\_array <small>(static)</small>
 
 ```gdscript
-func get_type(target, name)
+func to_array(value)
 ```
 
-@param    Reference  target
-@param    String     name
-@returns  int
+@param    Variant  value
+@returns  Variant[]
 
-### is\_funcref <small>(static)</small>
+### is\_array <small>(static)</small>
 
 ```gdscript
-func is_funcref(obj)
+func is_array(value)
 ```
 
-@param    Reference  obj
+@param    Variant  value
 @returns  bool
+
+### to\_dict <small>(static)</small>
+
+```gdscript
+func to_dict(value)
+```
+
+@param    Variant  value
+@returns  Dictionary
+
+### flatten <small>(static)</small>
+
+```gdscript
+func flatten(in_array, out_array, depth = -1)
+```
+
+@param    Variant[]  in_array
+@param    Variant[]  out_array
+@param    int        depth
+@returns  Variant[]

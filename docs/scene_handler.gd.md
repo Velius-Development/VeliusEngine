@@ -104,3 +104,4 @@ func open_side_menu()
 func start_tween(transition)
 ```
 
+Animations

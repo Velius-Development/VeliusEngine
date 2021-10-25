@@ -13,7 +13,7 @@ class TypeFactory.gd
 ### TYPE\_LIST
 
 ```gdscript
-const TYPE_LIST: Array = ["[GDScript:5472]","[GDScript:5474]","[GDScript:5475]","[GDScript:5477]","[GDScript:5478]","[GDScript:5479]",null,"[GDScript:5480]"]
+const TYPE_LIST: Array = ["[GDScript:6268]","[GDScript:6270]","[GDScript:6271]","[GDScript:6273]","[GDScript:6274]","[GDScript:6275]",null,"[GDScript:6276]"]
 ```
 
 ## Method Descriptions

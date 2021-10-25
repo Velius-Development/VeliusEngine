@@ -11,25 +11,25 @@
 ### TYPE\_2D
 
 ```gdscript
-const TYPE_2D: int = 0
+const TYPE_SCRIPT: int = 2
 ```
 
 ### TYPE\_3D
 
 ```gdscript
-const TYPE_2D: int = 0
+const TYPE_SCRIPT: int = 2
 ```
 
 ### TYPE\_OTHER
 
 ```gdscript
-const TYPE_2D: int = 0
+const TYPE_SCRIPT: int = 2
 ```
 
 ### TYPE\_SCRIPT
 
 ```gdscript
-const TYPE_2D: int = 0
+const TYPE_SCRIPT: int = 2
 ```
 
 ## Property Descriptions

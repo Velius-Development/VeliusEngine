@@ -16,6 +16,10 @@ var next
 
 - **Setter**: `set_next`
 
+#############################
+VARIABLES:
+Contains the current dialogue
+
 ### json\_data
 
 ```gdscript
@@ -60,12 +64,17 @@ var current_location_id: int
 func set_next(new_next: Dictionary) -> void
 ```
 
+#############################
+SET/GET-TERS
+
 ### get\_dialogue\_by\_id
 
 ```gdscript
 func get_dialogue_by_id(id: int) -> Dictionary
 ```
 
+#############################
+TODO: FIND TITLE
 Returns Dictionary containing
 the dialogue's data
 If id not found: returns empty Dictionary
@@ -84,6 +93,8 @@ Returns a choice's action string
 func start_chapter(json_path: String, chapterID: int) -> var
 ```
 
+#########################################
+## MESSAGE SYSTEM
 Loads a Mystery's data and theme
 After loading the given chapter will get displayed
 
@@ -128,6 +139,9 @@ Ends the mystery processing
 func go(id: int) -> void
 ```
 
+##############################################################################
+API
+##############################################################################
 Go to current chapter's dialogue with given id
 
 ### go\_chapter
@@ -221,5 +235,10 @@ Returns a given string value in its type
 
 ## Signals
 
-- signal new_dialogue(data): Called when a new dialogue is fired
+- signal new_dialogue(data): ##############################################################################
+                                 VELIUS ENGINE                              #
+##############################################################################
+#############################
+SIGNALS:
+Called when a new dialogue is fired
 Returns a Dictionary
