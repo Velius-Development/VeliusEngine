@@ -39,8 +39,10 @@ jobs:
           # If it should also download and cache the export templates
           download-templates: false
 
-      - name: Clone GDScript-docs-maker
-        run: git clone https://github.com/GDQuest/gdscript-docs-maker.git
+      - name: Install and clone GDScript-docs-maker
+        run: |
+          python3 -m pip install gdscript_docs_maker
+          git clone https://github.com/GDQuest/gdscript-docs-maker.git
 
       - name: Generate docs
         run: |
