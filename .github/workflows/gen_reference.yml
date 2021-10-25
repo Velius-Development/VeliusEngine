@@ -64,7 +64,7 @@ jobs:
       - name: Update velius.dev
         run: |
           cd ..
-          sed -i '1s/^/``` yaml\n---\neditLink: false\n---\n```\n/' todo.txt
+          sed -i '1s/^/``` yaml\n---\neditLink: false\n---\n```\n/' Game-Client/docs/velius.gd.md
           git clone https://github.com/Velius-Development/VeliusDocs.git
       - name: Pushes the updated docs
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
