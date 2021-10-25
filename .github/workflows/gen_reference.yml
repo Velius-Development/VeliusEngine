@@ -64,10 +64,10 @@ jobs:
       - name: Update velius.dev
         run: |
           cd ..
-          x=`echo "``` yaml
-          ---
-          editLink: false
-          ---
+          x=`echo "``` yaml \
+          --- \
+          editLink: false \
+          --- \
           ```"; cat Game-Client/docs/velius.gd.md`
           echo "$x" > Game-Client/docs/velius.gd.md
           git clone https://github.com/Velius-Development/VeliusDocs.git
