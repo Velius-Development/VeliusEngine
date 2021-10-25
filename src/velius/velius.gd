@@ -1,3 +1,10 @@
+# ::: warning
+# This document gets automatically generated using the [GDScript Docs Maker](https://github.com/GDQuest/gdscript-docs-maker)
+# :::
+# The Velius class represents the whole backend of the game.
+# It also works as the API between themes and MysterMaker project files.
+# To acces it when developing a theme, please use the official Velius-Engine SDK.
+# To access it when developing a mystery, you can use `Velius.<PROPERTY/METHOD>` in your scripts.
 extends Node
 
 ###############################################################################
