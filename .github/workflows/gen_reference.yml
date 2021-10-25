@@ -65,15 +65,16 @@ jobs:
         run: |
           cd ..
           git clone https://github.com/Velius-Development/VeliusDocs.git
-          cat Game-Client/docs/velius.gd.md > VeliusDocs/docs/reference/README.md
-          cd VeliusDocs
-      - name: Commit files
-        run: |
-          git commit -am "Updated docs 📚" || echo 0
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Pushes the updated docs
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          repository: Velius-Development/VeliusDocs
+          source_file: 'Game-Client/docs/velius.gd.md'
+          destination_repo: 'Velius-Development/VeliusDocs'
+          destination_folder: 'docs/reference'
+          user_email: '${{ secrets.BOT_EMAIL }}'
+          user_name: '${{ secrets.BOT_NAME }}'
+          commit_message: 'Updated docs 📚'
   
           
