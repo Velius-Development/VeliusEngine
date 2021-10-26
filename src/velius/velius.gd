@@ -210,7 +210,7 @@ func png_to_tex(local_res_path : String) -> ImageTexture:
 # in the dlc or the debug category
 # If no arguments are given, all DLC in user://DLC get
 # imported as DLC
-func import(path = "all", dlc = false):
+func import(path = "all", dlc = false) -> void:
 	var added_dirs = []
 	var dir = Directory.new()
 	var before = Funcs.list_folders_in_directory("res://")
