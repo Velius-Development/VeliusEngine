@@ -71,7 +71,7 @@ jobs:
       # Update VeliusSDK
       - name: Generate VeliusSDK
         run: |
-          python3 Game-Client/.github/workflows/sdk_maker/sdk_maker.py
+          python3 .github/workflows/sdk_maker/sdk_maker.py
       - name: Push generated SDK
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
         env:
