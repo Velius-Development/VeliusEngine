@@ -53,7 +53,7 @@ jobs:
       - name: Update velius.dev
         run: |
           cd ..
-          sed -i '1s/^/---\neditLink: false\nsidebar: auto\n---\n/' Game-Client/docs/velius.gd.md
+          sed -i '1s/^/---\neditLink: false\nsidebar: auto\ntitle:Reference\n---\n/' Game-Client/docs/velius.gd.md
           mv Game-Client/docs/velius.gd.md Game-Client/docs/README.md
       - name: Push the updated docs
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
