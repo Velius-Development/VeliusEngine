@@ -6,7 +6,6 @@
 # To acces it when developing a theme, please use the official Velius-Engine SDK.
 # To access it when developing a mystery, you can use `Velius.<PROPERTY/METHOD>` in your scripts.
 extends Node
-
 ###############################################################################
 #                                  VELIUS ENGINE                              #
 ###############################################################################

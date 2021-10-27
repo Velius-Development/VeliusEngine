@@ -48,17 +48,6 @@ jobs:
         run: |
           cd gdscript-docs-maker/
           ./generate_reference .. -o ../docs
-      
-#      - name: Commit files
-#        run: |
-#          git config --global user.name "${{ secrets.BOT_NAME }}"
-#          git config --global user.email "${{ secrets.BOT_EMAIL }}"
-#          git config --global user.password "${{ secrets.BOT_PASSWORD }}"
-#          git commit -am "Generated docs 📚" || echo 0
-#      - name: Push changes
-#        uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       # Update velius.dev
       - name: Update velius.dev
@@ -66,8 +55,7 @@ jobs:
           cd ..
           sed -i '1s/^/---\neditLink: false\nsidebar: auto\n---\n/' Game-Client/docs/velius.gd.md
           mv Game-Client/docs/velius.gd.md Game-Client/docs/README.md
-          git clone https://github.com/Velius-Development/VeliusDocs.git
-      - name: Pushes the updated docs
+      - name: Push the updated docs
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
         env:
           API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
@@ -79,4 +67,21 @@ jobs:
           user_email: '${{ secrets.BOT_EMAIL }}'
           user_name: '${{ secrets.BOT_NAME }}'
           commit_message: 'Updated references 📚'
-  
+
+      # Update VeliusSDK
+      - name: Generate VeliusSDK
+        run: |
+          cd ..
+          python3 Game-Client/.github/workflows/sdk_maker/sdk_maker.py
+      - name: Push generated SDK
+        uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.BOT_PAT }}
+        with:
+          source_file: 'velius.gd'
+          destination_repo: 'Velius-Development/VeliusSDK'
+          destination_branch: 'master'
+          destination_folder: 'addons'
+          user_email: '${{ secrets.BOT_EMAIL }}'
+          user_name: '${{ secrets.BOT_NAME }}'
+          commit_message: 'Updated SDK 🤖'
