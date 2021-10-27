@@ -63,7 +63,7 @@ jobs:
           source_file: 'docs/README.md'
           destination_repo: 'Velius-Development/VeliusDocs'
           destination_branch: 'master'
-          destination_folder: 'docs/reference'
+          destination_folder: 'reference'
           user_email: '${{ secrets.BOT_EMAIL }}'
           user_name: '${{ secrets.BOT_NAME }}'
           commit_message: 'Updated references 📚'
