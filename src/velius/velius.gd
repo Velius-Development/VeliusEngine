@@ -88,7 +88,7 @@ func _notification(what) -> void:
 # Returns Dictionary containing
 # the dialogue's data
 # If id not found: returns empty Dictionary
-func get_dialogue_by_id(id : int) -> Dictionary:
+func get_dialogue_by_id(id : int, chapter_id = current_chapter_id) -> Dictionary:
 	for chapter in json_data:
 		if chapter == str(current_chapter_id):
 			for dialogue in json_data[chapter]["dialogues"]:
@@ -106,7 +106,7 @@ func get_action(id : int) -> String:
 
 # Loads a Mystery's data and theme
 # After loading the given chapter will get displayed
-func start_chapter(json_path : String, chapterID : int) -> void:
+func start_chapter(json_path : String, chapterID : int, dialogue_id = 0) -> void:
 	# Update new json path
 	current_json_location = json_path
 
@@ -120,8 +120,8 @@ func start_chapter(json_path : String, chapterID : int) -> void:
 	
 	# Set intial starting point
 	current_chapter_id = chapterID
-	current_dialogue_id = 0
-	set_next(get_dialogue_by_id(0))
+	current_dialogue_id = dialogue_id
+	set_next(get_dialogue_by_id(dialogue_id))
 	
 	set_process(true)
 
