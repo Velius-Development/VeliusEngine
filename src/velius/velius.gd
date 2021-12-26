@@ -265,16 +265,16 @@ func import(path = "all", dlc = false) -> void:
 		Globals.IMPORTED[dRoot] = {"name": dName, "type": dType, "import_type": dIType, "json": dJson, "from": froms[counter]}
 		counter += 1
 
-# Removes a dictionary's object from a dictionary
+# Removes a dictionary's from property if equal to given value 
 # Only works on the first layer (non-recursive)
-func erase_from(dict : Dictionary, from : Dictionary) -> Dictionary:
+func erase_from(dict : Dictionary, from : String) -> Dictionary:
 	for key in dict.keys():
 		if dict[key].from == from:
 			dict.erase(key)
 	return dict
 
-# Returns the key of a object with in a dictionary that eqals the 'from' dictioanry
-func get_key_by_from(dict : Dictionary, from : Dictionary) -> String:
+# Returns the key of a object the given from value
+func get_key_by_from(dict : Dictionary, from : String) -> String:
 	for key in dict.keys():
 		if dict[key].from == from:
 			return key

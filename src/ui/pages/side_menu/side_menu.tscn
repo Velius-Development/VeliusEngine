@@ -318,7 +318,7 @@ margin_right = 1301.0
 
 [node name="Label" parent="HBoxContainer/Panel/SmoothScroll/VBoxContainer/SideMenuButton2/HBoxContainer/CenterContainer" index="0"]
 margin_right = 866.0
-text = "Back to menu"
+text = "Exit"
 
 [node name="Control" type="Control" parent="HBoxContainer"]
 margin_left = 1309.0
