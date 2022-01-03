@@ -254,6 +254,7 @@ func import(path = "all", dlc = false) -> void:
 		var data = Funcs.read_json(dJson)
 		
 		var dName = data.name
+		var dAuthor = data.author
 		var dType = data.type
 		
 		var dIType
@@ -262,7 +263,7 @@ func import(path = "all", dlc = false) -> void:
 		else:
 			dIType = "debug"
 		
-		Globals.IMPORTED[dRoot] = {"name": dName, "type": dType, "import_type": dIType, "json": dJson, "from": froms[counter]}
+		Globals.IMPORTED[dRoot] = {"name": dName, "author": dAuthor,"type": dType, "import_type": dIType, "json": dJson, "from": froms[counter]}
 		counter += 1
 
 # Removes a dictionary's from property if equal to given value 

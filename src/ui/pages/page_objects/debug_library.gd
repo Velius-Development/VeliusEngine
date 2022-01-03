@@ -40,10 +40,12 @@ func get_modules() -> Dictionary:
 		if item.import_type != "debug":
 			continue
 
+		print(item)
 		modules[i] = {
 			type = "mystery_entry",
 			data = {
 					title = item.name,
+					author = item.author,
 					key = id
 				}
 			}
